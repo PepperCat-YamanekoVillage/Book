@@ -18,10 +18,15 @@ func PDFStreamHandler() gin.HandlerFunc {
 			return
 		}
 
-		decodedPath, err := url.PathUnescape(pathParam)
-		if err != nil {
-			c.Status(http.StatusBadRequest)
-			return
+		decodedPath := pathParam
+
+		if !strings.HasPrefix(pathParam, "/") {
+			var err error
+			decodedPath, err = url.PathUnescape(pathParam)
+			if err != nil {
+				c.Status(http.StatusBadRequest)
+				return
+			}
 		}
 
 		rawPath := strings.TrimPrefix(decodedPath, "/")
