@@ -3,3 +3,5 @@ books/
 db/
 cache/
 node_modules/
+.devcontainer/
+.dockerignore

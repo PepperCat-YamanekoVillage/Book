@@ -18,6 +18,9 @@ export default defineConfig({
 				"@": path.resolve(__dirname, "./src"),
 			},
 		},
+		input: {
+			index: "./index.html",
+		},
 	},
 	server: {
 		cors: true,
